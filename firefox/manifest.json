@@ -20,10 +20,13 @@
       "js": ["main.js"]
     }
   ],
+
   "browser_specific_settings": {
   "gecko": {
-    "id": "tromoSM7@gmail.com"
+    "id": "tromoSM7@gmail.com",
+    "data_collection_permissions":{
+     "required":["none"]
   }
   }
-  
+  }
 }
