@@ -7,9 +7,9 @@ mozilla-addon is awaiting review. use <strong>'Other browsers including firefox'
 </details>
 <details>
   <summary>Other browsers including firefox</summary>
-  Find a js injector for your browser and get the "inject.js" from the latest release and use the js injector to inject the js to youtube.
+  Find a js injector for your browser and get the "inject.js" from the <a href="https://github.com/tromoSM/YT-Premium-Patch/releases/latest">latest release</a> and use the js injector to inject the js to youtube.
 </details>
 
 <br>
 <br>
-<h6>© 2026 tromoSM. All rights reserved.<br>compatible with yt-web: 2.20260305.01.00(latest)</h6>
+<h6>© 2026 tromoSM. All rights reserved.<br>YT Premium patch latest version : v1.0<br>compatible with yt-web: 2.20260305.01.00(latest)</h6>
