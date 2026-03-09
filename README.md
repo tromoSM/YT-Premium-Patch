@@ -3,7 +3,7 @@
 ## Installation
 <details>
 <summary>Firefox</summary>
-mozilla-addon is awaiting review. use <strong>'Other browsers including firefox'</strong> method to install for now.
+Install <a href="https://addons.mozilla.org/addon/yt-premium/">YT Premium</a> on mozilla addons
 </details>
 <details>
   <summary>Other browsers including firefox</summary>
