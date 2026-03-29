@@ -12,11 +12,53 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
+tromoSM/YT-Premium-Patch 
+main.js
+
+v1.1
 */
 if(location.hostname!=="www.youtube.com"){
     throw ""
 }
+const countr=document.createElement("script")
+countr.textContent=`
+var YTPremiumPatch_SessionADCount=0
+if(localStorage.getItem("tromoSM_YTPREMIUMPATCH_DONOTCHANGE")){
+var YTPremiumPatch_ADCount=parseInt(localStorage.getItem("tromoSM_YTPREMIUMPATCH_DONOTCHANGE"))
+}
+else{
+localStorage.setItem("tromoSM_YTPREMIUMPATCH_DONOTCHANGE",0)
+var YTPremiumPatch_ADCount=0
+}
+function add(){
+    YTPremiumPatch_ADCount++
+    YTPremiumPatch_SessionADCount++
+    localStorage.setItem("tromoSM_YTPREMIUMPATCH_DONOTCHANGE",YTPremiumPatch_ADCount)
+}
+console.log(YTPremiumPatch_ADCount)
+console.log(YTPremiumPatch_SessionADCount)
+let coun=document.createElement("button")
+document.body.appendChild(coun)
+coun.addEventListener('click',add)
+coun.setAttribute('tromoSM_YTPATCH',"counter")`
+
+document.documentElement.appendChild(countr)
+
+function addd(){
+    if(document.querySelector(`[tromoSM_YTPATCH="counter"]`)){
+      document.querySelector(`[tromoSM_YTPATCH="counter"]`).click()
+    }
+    else{
+    console.log("%c  ▶ FAIL: ADS ARE NOT BEING COUNTED ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;") 
+    }
+}
 console.log("%c  ▶ YT Premium by tromoSM  ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:20px;border-radius:50px;")
+console.log("")
+if(localStorage.getItem("tromoSM_YTPREMIUMPATCH_DONOTCHANGE")){
+console.log(`%c  ▶ ${localStorage.getItem("tromoSM_YTPREMIUMPATCH_DONOTCHANGE")} Ads blocked since install  `,"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
+}
+
 window.wait=function(dih){
         return new Promise(resolve=>setTimeout(resolve,dih))
 }
@@ -43,6 +85,65 @@ window.dih=async function(){
 }
 function refreshdih(){
     if(document.querySelector(".html5-video-player.ad-showing")){
+        if(document.querySelector(".ytwPanelAdHeaderImageLockupViewModelHost")){
+            document.querySelectorAll(".ytwPanelAdHeaderImageLockupViewModelHost").forEach(sidead=>{
+              try{
+                sidead.remove()
+                addd()
+                console.log("%c  ▶ Removed ad card   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
+              }
+              catch(e){
+                console.warn("%c  ▶ WARNING: Removed via visibility   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;")
+                sidead.style.display='none'
+                console.log("%c  ▶ Removed ad card   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
+              }
+            })
+        }
+        if(document.querySelector("#content.ytd-engagement-panel-section-list-renderer")){
+            document.querySelectorAll("#content.ytd-engagement-panel-section-list-renderer").forEach(adsurvey=>{
+                try{
+                    adsurvey.remove()
+                    addd()
+                }
+                catch(dih){
+                console.warn(`%c  ▶ WARNING: Removed via visibility : ${dih}   `,"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;")
+                adsurvey.style.display="none"
+                }
+                finally{
+                console.log("%c  ▶ Removed ad survey   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
+                }
+            })
+        }
+        if(document.querySelector(`[class="ytp-ad-player-overlay-layout__player-card-container"]`)){
+            document.querySelectorAll(`[class="ytp-ad-player-overlay-layout__player-card-container"]`).forEach(advatar=>{
+                try{
+                    advatar.remove()
+                    addd()
+                }
+                catch(dih){
+                console.warn(`%c  ▶ WARNING: Removed via visibility : ${dih}   `,"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;")
+                advatar.style.display="none"
+                }
+                finally{
+                console.log("%c  ▶ Removed ad overlay card   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
+                }
+            })
+        }
+        if(document.querySelector(`.ytwTopBannerImageTextIconButtonedLayoutViewModelHost`)){
+            document.querySelectorAll.forEach(sidehostinfo=>{
+                try{
+                    sidehostinfo.remove()
+                    addd()
+                }
+                catch(dih){
+                console.warn(`%c  ▶ WARNING: Removed via visibility : ${dih}   `,"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;")
+                sidehostinfo.style.display="none"
+                }
+                finally{
+                console.log("%c  ▶ Removed Ad host info from sidebar   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
+                }
+            })
+        }
  document.querySelectorAll(".html5-video-player.ad-showing").forEach(dih=>{
     if(document.querySelector('[id^="skip-button"]')){
        document.querySelectorAll('[id^="skip-button"]').forEach(dih=>{
@@ -53,6 +154,7 @@ function refreshdih(){
     dih.querySelector('video').playbackRate=100
     console.log("%c  ▶ Speeding up the ad   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
     document.querySelector(".html5-video-player.ad-showing").querySelector('video').style.filter='blur(10px) brightness(0.9)' 
+    addd()
  }) 
 }
 else{
@@ -87,21 +189,45 @@ async function visADs(){
     document.querySelectorAll(`#rendering-content.ytd-in-feed-ad-layout-renderer`).forEach(yo=>{
         if(yo.querySelector(`[class="yt-core-attributed-string ytwAdDetailsLineViewModelHostTextStyleStandard yt-core-attributed-string--white-space-pre-wrap"]`)){
             console.log(`%c  ▶  removed ${yo.querySelector(`[class="yt-core-attributed-string ytwAdDetailsLineViewModelHostTextStyleStandard yt-core-attributed-string--white-space-pre-wrap"]`).textContent}'s ad`   ,"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
-        }
+        } 
         try{
         yo.remove()
         }
         catch(dih){
         yo.style.display='none'
+        console.warn("%c  ▶ WARNING: Removed via visibility   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;")
         }
+        finally{
+            addd()
+        }
+    })   
+}
+async function infeedBAN(){
+    if(!document.querySelector(`#content.ytd-rich-section-renderer`)){
+        await wait(500)
+    }
+    document.querySelector(`#content.ytd-rich-section-renderer`).forEach(sybau=>{
+     try{
+        sybau.remove()
+     }
+     catch(dih){
+        sybau.display="none"
+        console.warn("%c  ▶ WARNING: Removed via visibility   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;")
+     }
+     finally{
+            console.log(`%c  ▶  removed premium ad banner`   ,"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
+             addd()
+     }
     })
 }
+infeedBAN()
+
 visADs()
 window.addEventListener("mousemove",visADs)
 async function rparseLOGO(){
  while(!document.querySelector('#logo-icon')){
     await wait(500)
-    console.log("%c  ▶ FAIL: unable to add premium logo   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;") 
+    console.error("%c  ▶ FAIL: unable to add premium logo   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;") 
  }
     await dih()
     console.log("%c  ▶ Adding premium logo   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
