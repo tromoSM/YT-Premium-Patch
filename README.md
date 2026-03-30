@@ -16,5 +16,5 @@ Install <a href="https://addons.mozilla.org/addon/yt-premium/">YT Premium</a> on
 
 <br>
 <br>
-<h6>YTPatchPremium version (github) : 1.1<br>YTPatchPremium version (mozilla addons) : 1.0 (1.1 is awaiting review)</h6>
+<h6>YTPatchPremium version (github) : 1.1<br>YTPatchPremium version (mozilla addons) : 1.1</h6>
 <h6>© 2026 tromoSM. All rights reserved.<br>YT Premium patch latest version : v1.0<br>compatible with yt-web: 2.20260325.08.00(latest)</h6>
