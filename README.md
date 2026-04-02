@@ -7,7 +7,7 @@ Install <a href="https://addons.mozilla.org/addon/yt-premium/">YT Premium</a> on
 </details>
 <details>
   <summary>Other browsers including firefox</summary>
-  Find a js injector for your browser and get the "inject.js" from the <a href="https://github.com/tromoSM/YT-Premium-Patch/releases/latest">latest release</a> and use the js injector to inject the js to youtube.
+  Find a js injector for your browser and get the "main.js" from the <a href="https://github.com/tromoSM/YT-Premium-Patch/releases/latest">latest release</a> and use the js injector to inject the js to youtube.
 </details>
 
 ## Preview
