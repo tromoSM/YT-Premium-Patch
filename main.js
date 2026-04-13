@@ -297,6 +297,6 @@ if(sidOPBO==false){
     sideOpt()
 }
 else{
-    pass
+    console.log('')
 }
 })
