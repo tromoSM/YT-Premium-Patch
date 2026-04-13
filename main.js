@@ -16,7 +16,7 @@ limitations under the License.
 tromoSM/YT-Premium-Patch 
 main.js
 
-v1.1
+v1.2
 */
 if(location.hostname!=="www.youtube.com"){
     throw ""
@@ -181,7 +181,65 @@ const o=new MutationObserver(win)
      console.log("%c  ▶ Applying patch   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
     }
     yo()
-
+async function StudentBann(){
+    if(!document.querySelector('#statement-banner-content.ytd-statement-banner-renderer')){
+        await wait(600)
+    }
+    document.querySelectorAll(`#statement-banner-content.ytd-statement-banner-renderer`).forEach(sB=>{
+        try{
+            sB.remove()
+        }
+        catch(dih){
+            sB.style.display='none'
+            console.warn(`%c  ▶ WARNING: Removed via visibility - ${dih}`,"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;")
+        }
+        finally{
+            addd()
+        }
+    })
+}
+StudentBann()
+async function smartRenderer(){
+    if(!document.querySelector(`.ytwTopBannerImageTextIconButtonedLayoutViewModelHost `)){
+        await wait(600)
+    }
+    document.querySelectorAll(`.ytwTopBannerImageTextIconButtonedLayoutViewModelHost `).forEach(sR=>{
+        try{
+            sR.remove()
+        }
+        catch(dih){
+            sR.style.display="none"
+            console.warn(`%c  ▶ WARNING: Removed via visibility - ${dih}`,"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;")
+        }
+        finally{
+            addd()
+        }
+    })
+}
+smartRenderer()
+/*
+rem yt-simple-endpoint style-scope ytd-guide-entry-renderer if ins title style-scope ytd-guide-entry-renderer 'Youtube Premium'
+ */
+let sidOPBO=false
+async function sideOpt(){
+    if(!document.querySelector(`[class="title style-scope ytd-guide-entry-renderer"]`)){
+        await wait(500)
+        console.error('wa')
+    }
+    document.querySelectorAll(`[class="title style-scope ytd-guide-entry-renderer"]`).forEach(inT=>{
+            if(inT.innerHTML=='YouTube Premium'){
+                try{
+                  inT.closest(`[id="endpoint"]`).remove()
+                  sidOPBO=true
+                  console.log('suc')
+                 }
+                catch(dih){
+                  console.error(dih)
+                 } 
+            }
+    })
+}
+sideOpt()
 async function visADs(){
     if(!document.querySelector(`#rendering-content.ytd-in-feed-ad-layout-renderer`)){
     await wait(500)
@@ -234,3 +292,11 @@ async function rparseLOGO(){
 }
 rparseLOGO()
 window.addEventListener('click',yo)
+window.addEventListener('mousemove',function(){
+if(sidOPBO==false){
+    sideOpt()
+}
+else{
+    pass
+}
+})
