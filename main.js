@@ -16,7 +16,7 @@ limitations under the License.
 tromoSM/YT-Premium-Patch 
 main.js
 
-v1.2
+v1.3
 */
 if(location.hostname!=="www.youtube.com"){
     throw ""
