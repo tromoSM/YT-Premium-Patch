@@ -17,4 +17,4 @@ Install <a href="https://addons.mozilla.org/addon/yt-premium/">YT Premium</a> on
 <br>
 <br>
 <h6>YTPatchPremium version (github) : 1.2<br>YTPatchPremium version (mozilla addons) : 1.1 (v1.2 is awaiting review)</h6>
-<h6><a href="https://tromosm.ct.ws/?feedback=true">Send feedback or request features</a><br>© 2026 tromoSM. All rights reserved.<br>YT Premium patch latest version : v1.0<br>compatible with yt-web: 2.20260325.08.00(latest)</h6>
+<h6><a href="https://tromosm.ct.ws/?feedback=true">Send feedback or request features</a><br>© 2026 tromoSM. All rights reserved.<br>YT Premium patch latest version : v1.0<br>compatible with yt-web: 2.20260409.02.00(latest)</h6>
