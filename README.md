@@ -1,5 +1,8 @@
 ![keep ts absolute for site mgr](https://github.com/tromoSM/YT-Premium-Patch/blob/main/Assets/gitlogo.png?raw=true)
 #### Youtube premium for free
+
+![Mozilla Add-on Downloads](https://img.shields.io/amo/dw/yt-premium)
+
 ## Installation
 <details>
 <summary>Firefox</summary>
