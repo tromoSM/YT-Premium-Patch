@@ -16,8 +16,8 @@ Install <a href="https://addons.mozilla.org/addon/yt-premium/">YT Premium</a> on
 ## Preview
 
 <p align="center">
-<img height="350px" alt="desktop preview screenshot" src="https://github.com/tromoSM/YT-Premium-Patch/blob/main/Assets/screencapture.PNG?raw=true">
-<img height="350px"  alt="mobile preview screenshot" src="https://github.com/user-attachments/assets/e3747ad1-59c0-45fa-91ab-9465a9e0f57e" />
+<img height="330px" alt="desktop preview screenshot" src="https://github.com/tromoSM/YT-Premium-Patch/blob/main/Assets/screencapture.PNG?raw=true">
+<img height="330px"  alt="mobile preview screenshot" src="https://github.com/user-attachments/assets/e3747ad1-59c0-45fa-91ab-9465a9e0f57e" />
   
 </p>
 
