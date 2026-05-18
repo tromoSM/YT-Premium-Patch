@@ -16,9 +16,19 @@ limitations under the License.
 tromoSM/YT-Premium-Patch 
 main.js
 
-v1.3
+v1.4
 */
-if(location.hostname!=="www.youtube.com"){
+/*
+<input class="ytp-input-slider ytp-speedslider ytp-varispeed-input-slider" role="slider" tabindex="0" type="range" min="0.25" max="2" step="0.05" value="1" aria-valuenow="1" aria-valuemin="0.25" aria-valuemax="2" aria-valuetext="1.00" style="--yt-slider-shape-gradient-percent: 42.857142857142854%;">
+
+.style-scope.ytd-rich-section-renderer Time’s running out: 2 months of Premium{
+	display: none; or remv()
+}
+#main.yt-mealbar-promo-renderer dis or remv - time to study popup
+
+ytd-statement-banner-renderer no class nodename \\premium banner common/all
+*/
+if(location.hostname!=="www.youtube.com"&&location.hostname!=="m.youtube.com"){
     throw ""
 }
 const countr=document.createElement("script")
@@ -82,7 +92,31 @@ window.dih=async function(){
         document.querySelector('[id^="youtube-paths_yt"]').appendChild(d)
     })
     document.querySelector('#logo-icon').style.width='110px'
+    document.querySelector('[id^="youtube-paths_yt"]').setAttribute('youtube-paths-ch','true')
 }
+
+window.mobile=async function(){
+    await window.dih
+}
+let MobileReportOnly=0
+try{
+ if(location.hostname=="m.youtube.com"){
+   setInterval(()=>{
+   if(document.querySelector('[id^="youtube-paths_yt"]').getAttribute('youtube-paths-ch')!='true'){
+    window.mobile()
+   } 
+   },100)
+ }
+}
+catch(error){
+    if(MobileReportOnly==0){
+    MobileReportOnly=1
+    console.error(`%c  ▶ FAIL: ${error}`,"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;") 
+    }
+}
+window.addEventListener('click',async function(){
+   await window.dih()
+})
 function refreshdih(){
     if(document.querySelector(".html5-video-player.ad-showing")){
         if(document.querySelector(".ytwPanelAdHeaderImageLockupViewModelHost")){
@@ -182,10 +216,10 @@ const o=new MutationObserver(win)
     }
     yo()
 async function StudentBann(){
-    if(!document.querySelector('#statement-banner-content.ytd-statement-banner-renderer')){
+    if(!document.querySelector('ytd-statement-banner-renderer')){
         await wait(600)
     }
-    document.querySelectorAll(`#statement-banner-content.ytd-statement-banner-renderer`).forEach(sB=>{
+    document.querySelectorAll(`.ytd-statement-banner-renderer`).forEach(sB=>{
         try{
             sB.remove()
         }
@@ -224,7 +258,6 @@ let sidOPBO=false
 async function sideOpt(){
     if(!document.querySelector(`[class="title style-scope ytd-guide-entry-renderer"]`)){
         await wait(500)
-        console.error('wa')
     }
     document.querySelectorAll(`[class="title style-scope ytd-guide-entry-renderer"]`).forEach(inT=>{
             if(inT.innerHTML=='YouTube Premium'){
@@ -241,10 +274,10 @@ async function sideOpt(){
 }
 sideOpt()
 async function visADs(){
-    if(!document.querySelector(`#rendering-content.ytd-in-feed-ad-layout-renderer`)){
+    if(!document.querySelector(`.ytd-in-feed-ad-layout-renderer`)){
     await wait(500)
     }
-    document.querySelectorAll(`#rendering-content.ytd-in-feed-ad-layout-renderer`).forEach(yo=>{
+    document.querySelectorAll(`.ytd-in-feed-ad-layout-renderer`).forEach(yo=>{
         if(yo.querySelector(`[class="yt-core-attributed-string ytwAdDetailsLineViewModelHostTextStyleStandard yt-core-attributed-string--white-space-pre-wrap"]`)){
             console.log(`%c  ▶  removed ${yo.querySelector(`[class="yt-core-attributed-string ytwAdDetailsLineViewModelHostTextStyleStandard yt-core-attributed-string--white-space-pre-wrap"]`).textContent}'s ad`   ,"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
         } 
@@ -283,7 +316,7 @@ infeedBAN()
 visADs()
 window.addEventListener("mousemove",visADs)
 async function rparseLOGO(){
- while(!document.querySelector('#logo-icon')){
+ while(!document.querySelector('.ytd-logo')){
     await wait(500)
     console.error("%c  ▶ FAIL: unable to add premium logo   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;") 
  }
@@ -291,12 +324,14 @@ async function rparseLOGO(){
     console.log("%c  ▶ Adding premium logo   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
 }
 rparseLOGO()
+if(location.hostname=="m.youtube.com"){
+    window.addEventListener('pointermove',function(){
+        rparseLOGO()
+    })
+}
 window.addEventListener('click',yo)
 window.addEventListener('mousemove',function(){
 if(sidOPBO==false){
     sideOpt()
-}
-else{
-    console.log('')
 }
 })
