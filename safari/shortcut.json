@@ -1,0 +1,620 @@
+{
+   "WFWorkflowMinimumClientVersionString": "1113",
+   "WFWorkflowMinimumClientVersion": 1113,
+   "WFWorkflowIcon": {
+      "WFWorkflowIconStartColor": 4282601983,
+      "WFWorkflowIconGlyphNumber": 59864
+   },
+   "WFWorkflowClientVersion": "1146.16.2.2",
+   "WFWorkflowOutputContentItemClasses": [],
+   "WFWorkflowHasOutputFallback": false,
+   "WFWorkflowNoInputBehavior": {
+      "Name": "WFWorkflowNoInputBehaviorShowError",
+      "Parameters": {
+         "Error": "YT Premium Patch can't directly be activated.     Go to https://youtube.com/ and click share icon and click Activate Yt premium patch to activate. Refreshing the page will make it deactivate. "
+      }
+   },
+   "WFWorkflowActions": [
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+         "WFWorkflowActionParameters": {
+            "WFTextActionText": "http://tromosm.gt.tc/?feedback=true&utm_source=yt_shortcut",
+            "UUID": "5A67E2E1-C900-4EB5-8730-C922D36F6D71"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.setvariable",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "OutputUUID": "5A67E2E1-C900-4EB5-8730-C922D36F6D71",
+                  "Type": "ActionOutput",
+                  "OutputName": "Text"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "WFVariableName": "Feedback site"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+         "WFWorkflowActionParameters": {
+            "WFCommentActionText": "YT Premium Patch is open-source.\n\nGithub : https://github.com/tromoSM/YT-Premium-Patch\n\nFeedback/requests: http://tromosm.gt.tc/?feedback=true&utm_source=yt_shortcut"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+         "WFWorkflowActionParameters": {
+            "WFCommentActionText": "YT Premium Patch for  (v1.5/26.06) - no auto update.\n\nYT Premium patch is experimental on safari and cannot be directly injected or activated permenatly.\n\nFor users:\n   - Go to https://youtube.com/ (not m.youtube.com and don’t let safari open the youtube app\n   - Click share icon on safari page and scroll to the bottom until you find “Activate YT Premium Patch” and click it and wait until you see “YT Premium patch activated”.\n   - YT Premium patch cannot be activated forever due to apple’s restrictions and will be deactivated automatically after refreshing page."
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.runjavascriptonwebpage",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "Type": "ExtensionInput"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "WFJavaScript": "/*\nCopyright 2026 tromoSM\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n\ntromoSM/YT-Premium-Patch \nmain.js\n\nv1.5\n*/\nif(location.hostname!==\"www.youtube.com\"&&location.hostname!==\"m.youtube.com\"){\n    throw \"\"\n}\nlet YTPremiumPatch_Version='v1.5'\n\nconst countr=document.createElement(\"script\")\ncountr.textContent=`\nvar YTPremiumPatch_SessionADCount=0\nif(localStorage.getItem(\"tromoSM_YTPREMIUMPATCH_DONOTCHANGE\")){\nvar YTPremiumPatch_ADCount=parseInt(localStorage.getItem(\"tromoSM_YTPREMIUMPATCH_DONOTCHANGE\"))\n}\nelse{\nlocalStorage.setItem(\"tromoSM_YTPREMIUMPATCH_DONOTCHANGE\",0)\nvar YTPremiumPatch_ADCount=0\n}\nfunction add(){\n    YTPremiumPatch_ADCount++\n    YTPremiumPatch_SessionADCount++\n    localStorage.setItem(\"tromoSM_YTPREMIUMPATCH_DONOTCHANGE\",YTPremiumPatch_ADCount)\n}\nconsole.log(YTPremiumPatch_ADCount)\nconsole.log(YTPremiumPatch_SessionADCount)\nlet coun=document.createElement(\"button\")\ndocument.body.appendChild(coun)\ncoun.addEventListener('click',add)\ncoun.setAttribute('tromoSM_YTPATCH',\"counter\")`\n\ndocument.documentElement.appendChild(countr)\n\nfunction addd(){\n    if(document.querySelector(`[tromoSM_YTPATCH=\"counter\"]`)){\n      document.querySelector(`[tromoSM_YTPATCH=\"counter\"]`).click()\n    }\n    else{\n    console.log(\"%c  ▶ FAIL: ADS ARE NOT BEING COUNTED \",\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;\") \n    }\n}\nconsole.log(`%c  ▶ YT Premium by tromoSM %c ${YTPremiumPatch_Version} `,\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:20px;border-radius:50px;\",'font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);border-radius:50px;margin-left:5px;padding:0px 1px;')\n\nconsole.log(\"\")\nif(localStorage.getItem(\"tromoSM_YTPREMIUMPATCH_DONOTCHANGE\")){\nconsole.log(`%c  ▶ ${localStorage.getItem(\"tromoSM_YTPREMIUMPATCH_DONOTCHANGE\")} Ads blocked since install  `,\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;\")\n}\n\nwindow.wait=function(dih){\n        return new Promise(resolve=>setTimeout(resolve,dih))\n}\nwindow.dih=async function(){\n    while(!document.querySelector('[id^=\"youtube-paths_yt\"]')){\n        await wait(500)\n    }\n    document.querySelectorAll('[id^=\"youtube-paths_yt\"]').forEach(logo=>{\n        logo.replaceChildren()\n    })\n    const p=[\n    \"M32.1819 2.10016V18.9002H34.7619V12.9102H35.4519C38.8019 12.9102 40.5619 11.1102 40.5619 7.57016V6.88016C40.5619 3.31016 39.0019 2.10016 35.7219 2.10016H32.1819ZM37.8619 7.63016C37.8619 10.0002 37.1419 11.0802 35.4019 11.0802H34.7619V3.95016H35.4519C37.4219 3.95016 37.8619 4.76016 37.8619 7.13016V7.63016Z\",\n    \"M41.982 18.9002H44.532V10.0902C44.952 9.37016 45.992 9.05016 47.302 9.32016L47.462 6.33016C47.292 6.31016 47.142 6.29016 47.002 6.29016C45.802 6.29016 44.832 7.20016 44.342 8.86016H44.162L43.952 6.54016H41.982V18.9002Z\",\n    \"M55.7461 11.5002C55.7461 8.52016 55.4461 6.31016 52.0161 6.31016C48.7861 6.31016 48.0661 8.46016 48.0661 11.6202V13.7902C48.0661 16.8702 48.7261 19.1102 51.9361 19.1102C54.4761 19.1102 55.7861 17.8402 55.6361 15.3802L53.3861 15.2602C53.3561 16.7802 53.0061 17.4002 51.9961 17.4002C50.7261 17.4002 50.6661 16.1902 50.6661 14.3902V13.5502H55.7461V11.5002ZM51.9561 7.97016C53.1761 7.97016 53.2661 9.12016 53.2661 11.0702V12.0802H50.6661V11.0702C50.6661 9.14016 50.7461 7.97016 51.9561 7.97016Z\",\n    \"M60.1945 18.9002V8.92016C60.5745 8.39016 61.1945 8.07016 61.7945 8.07016C62.5645 8.07016 62.8445 8.61016 62.8445 9.69016V18.9002H65.5045L65.4845 8.93016C65.8545 8.37016 66.4845 8.04016 67.1045 8.04016C67.7745 8.04016 68.1445 8.61016 68.1445 9.69016V18.9002H70.8045V9.49016C70.8045 7.28016 70.0145 6.27016 68.3445 6.27016C67.1845 6.27016 66.1945 6.69016 65.2845 7.67016C64.9045 6.76016 64.1545 6.27016 63.0845 6.27016C61.8745 6.27016 60.7345 6.79016 59.9345 7.76016H59.7845L59.5945 6.54016H57.5445V18.9002H60.1945Z\",\n    \"M74.0858 4.97016C74.9858 4.97016 75.4058 4.67016 75.4058 3.43016C75.4058 2.27016 74.9558 1.91016 74.0858 1.91016C73.2058 1.91016 72.7758 2.23016 72.7758 3.43016C72.7758 4.67016 73.1858 4.97016 74.0858 4.97016ZM72.8658 18.9002H75.3958V6.54016H72.8658V18.9002Z\",\n    \"M79.9516 19.0902C81.4116 19.0902 82.3216 18.4802 83.0716 17.3802H83.1816L83.2916 18.9002H85.2816V6.54016H82.6416V16.4702C82.3616 16.9602 81.7116 17.3202 81.1016 17.3202C80.3316 17.3202 80.0916 16.7102 80.0916 15.6902V6.54016H77.4616V15.8102C77.4616 17.8202 78.0416 19.0902 79.9516 19.0902Z\",\n    \"M90.0031 18.9002V8.92016C90.3831 8.39016 91.0031 8.07016 91.6031 8.07016C92.3731 8.07016 92.6531 8.61016 92.6531 9.69016V18.9002H95.3131L95.2931 8.93016C95.6631 8.37016 96.2931 8.04016 96.9131 8.04016C97.5831 8.04016 97.9531 8.61016 97.9531 9.69016V18.9002H100.613V9.49016C100.613 7.28016 99.8231 6.27016 98.1531 6.27016C96.9931 6.27016 96.0031 6.69016 95.0931 7.67016C94.7131 6.76016 93.9631 6.27016 92.8931 6.27016C91.6831 6.27016 90.5431 6.79016 89.7431 7.76016H89.5931L89.4031 6.54016H87.3531V18.9002H90.0031Z\"\n    ]\n    p.forEach(dih=>{\n        document.querySelectorAll('[id^=\"youtube-paths_yt\"]').forEach(logo=>{\n         let d= document.createElementNS(\"http://www.w3.org/2000/svg\",\"path\")\n         d.setAttribute('d',dih)\n         logo.appendChild(d)\n        })\n    })\n    let logolist=[\".logo-in-player.full-logo\",\".mobile-topbar-logo.full-logo\",'#logo-icon']\n    logolist.forEach(logo=>{\n        if(document.querySelector(logo)){\n            document.querySelectorAll(logo).forEach(eachlogo=>{\n                eachlogo.style.width='110px'\n            })\n        }\n    })\n    document.querySelector('[id^=\"youtube-paths_yt\"]').setAttribute('youtube-paths-ch','true')\n}\n\nwindow.mobile=async function(){\n    await window.dih\n}\nlet MobileReportOnly=0\ntry{\n if(location.hostname==\"m.youtube.com\"){\n   setInterval(()=>{\n    if(document.querySelector('[id^=\"youtube-paths_yt\"]')){\n     if(document.querySelector('[id^=\"youtube-paths_yt\"]').getAttribute('youtube-paths-ch')!='true'){\n      window.mobile()\n     } \n    }\n   },100)\n }\n}\ncatch(error){\n    if(MobileReportOnly==0){\n    MobileReportOnly=1\n    console.error(`%c  ▶ FAIL: ${error}`,\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;\") \n    }\n}\nwindow.addEventListener('click',async function(){\n   await window.dih()\n})\nfunction refreshdih(){\n    if(document.querySelector(\".html5-video-player.ad-showing\")){\n        if(document.querySelector(\".ytwPanelAdHeaderImageLockupViewModelHost\")){\n            document.querySelectorAll(\".ytwPanelAdHeaderImageLockupViewModelHost\").forEach(sidead=>{\n              try{\n                sidead.remove()\n                addd()\n                console.log(\"%c  ▶ Removed ad card   \",\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;\")\n              }\n              catch(e){\n                console.warn(\"%c  ▶ WARNING: Removed via visibility   \",\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;\")\n                sidead.style.display='none'\n                console.log(\"%c  ▶ Removed ad card   \",\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;\")\n              }\n            })\n        }\n        if(document.querySelector(\"#content.ytd-engagement-panel-section-list-renderer\")){\n            document.querySelectorAll(\"#content.ytd-engagement-panel-section-list-renderer\").forEach(adsurvey=>{\n                try{\n                    adsurvey.remove()\n                    addd()\n                }\n                catch(dih){\n                console.warn(`%c  ▶ WARNING: Removed via visibility : ${dih}   `,\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;\")\n                adsurvey.style.display=\"none\"\n                }\n                finally{\n                console.log(\"%c  ▶ Removed ad survey   \",\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;\")\n                }\n            })\n        }\n        if(document.querySelector(`[class=\"ytp-ad-player-overlay-layout__player-card-container\"]`)){\n            document.querySelectorAll(`[class=\"ytp-ad-player-overlay-layout__player-card-container\"]`).forEach(advatar=>{\n                try{\n                    advatar.remove()\n                    addd()\n                }\n                catch(dih){\n                console.warn(`%c  ▶ WARNING: Removed via visibility : ${dih}   `,\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;\")\n                advatar.style.display=\"none\"\n                }\n                finally{\n                console.log(\"%c  ▶ Removed ad overlay card   \",\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;\")\n                }\n            })\n        }\n        if(document.querySelector(`.ytwTopBannerImageTextIconButtonedLayoutViewModelHost`)){\n            document.querySelectorAll.forEach(sidehostinfo=>{\n                try{\n                    sidehostinfo.remove()\n                    addd()\n                }\n                catch(dih){\n                console.warn(`%c  ▶ WARNING: Removed via visibility : ${dih}   `,\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;\")\n                sidehostinfo.style.display=\"none\"\n                }\n                finally{\n                console.log(\"%c  ▶ Removed Ad host info from sidebar   \",\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;\")\n                }\n            })\n        }\n document.querySelectorAll(\".html5-video-player.ad-showing\").forEach(dih=>{\n    if(document.querySelector('[id^=\"skip-button\"]')){\n       document.querySelectorAll('[id^=\"skip-button\"]').forEach(dih=>{\n        dih.click()\n       console.log(\"%c  ▶ Skipping ad   \",\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;\")\n       })\n    }\n    dih.querySelector('video').playbackRate=100\n    console.log(\"%c  ▶ Speeding up the ad   \",\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;\")\n    document.querySelector(\".html5-video-player.ad-showing\").querySelector('video').style.filter='blur(10px) brightness(0.9)' \n    addd()\n }) \n}\nelse{\n    document.querySelector(`.html5-video-player`).querySelector('video').playbackRate=1\n    document.querySelector(`.html5-video-player`).querySelector('video').style.filter='none' \n}\n}\nconst op={\n    attributes:true\n}\nfunction win(m,ob){\n    m.forEach(function(iguessbro){\n        if(iguessbro.type=='attributes'&&iguessbro.attributeName==\"class\"){\n            refreshdih()\n        }\n    })\n}\nconst o=new MutationObserver(win)\n async function yo(){\n     while(!document.querySelector(`.html5-video-player`)){\n        await wait(600)\n     }\n     o.observe(document.querySelector(`.html5-video-player`),op)\n     console.log(\"%c  ▶ Applying patch   \",\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;\")\n    }\n    yo()\nasync function StudentBann(){\n    if(!document.querySelector('ytd-statement-banner-renderer')){\n        await wait(600)\n    }\n    document.querySelectorAll(`.ytd-statement-banner-renderer`).forEach(sB=>{\n        try{\n            sB.remove()\n        }\n        catch(dih){\n            sB.style.display='none'\n            console.warn(`%c  ▶ WARNING: Removed via visibility - ${dih}`,\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;\")\n        }\n        finally{\n            addd()\n        }\n    })\n}\nStudentBann()\nasync function smartRenderer(){\n    if(!document.querySelector(`.ytwTopBannerImageTextIconButtonedLayoutViewModelHost `)){\n        await wait(600)\n    }\n    document.querySelectorAll(`.ytwTopBannerImageTextIconButtonedLayoutViewModelHost `).forEach(sR=>{\n        try{\n            sR.remove()\n        }\n        catch(dih){\n            sR.style.display=\"none\"\n            console.warn(`%c  ▶ WARNING: Removed via visibility - ${dih}`,\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;\")\n        }\n        finally{\n            addd()\n        }\n    })\n}\nsmartRenderer()\n/*\nrem yt-simple-endpoint style-scope ytd-guide-entry-renderer if ins title style-scope ytd-guide-entry-renderer 'Youtube Premium'\n */\nlet sidOPBO=false\nasync function sideOpt(){\n    if(!document.querySelector(`[class=\"title style-scope ytd-guide-entry-renderer\"]`)&&document.querySelector('[class=\"ytAttributedStringHost\"][role=\"text\"]')){\n        await wait(500)\n    }\n    if(document.querySelector('[class=\"ytAttributedStringHost\"][role=\"text\"]')){\n        document.querySelectorAll('[class=\"ytAttributedStringHost\"][role=\"text\"]').forEach(text=>{\n            if(text.innerText.includes('Get YouTube Premium')){\n                try{\n                    text.closest('ytm-compact-link-renderer').remove()\n                    sidOPBO=true\n                }\n                catch(err){\n                    text.closest('ytm-compact-link-renderer').style.display='none'\n                    console.error(err)\n                    console.warn(\"%c  ▶ WARNING: Removed via visibility   \",\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;\")\n                }\n            }\n        })\n    }\n    if(document.querySelector(`[class=\"title style-scope ytd-guide-entry-renderer\"]`)){\n    document.querySelectorAll(`[class=\"title style-scope ytd-guide-entry-renderer\"]`).forEach(inT=>{\n            if(inT.innerHTML.includes('Premium')){\n                try{\n                  inT.closest(`[id=\"endpoint\"]`).remove()\n                  sidOPBO=true\n                 }\n                catch(dih){\n                  console.error(dih)\n                 } \n            }\n    })\n   }\n    \n}\nsideOpt()\nasync function visADs(){\n    if(!document.querySelector(`.ytd-in-feed-ad-layout-renderer`)){\n    await wait(500)\n    }\n    document.querySelectorAll(`.ytd-in-feed-ad-layout-renderer`).forEach(yo=>{\n        if(yo.querySelector(`[class=\"yt-core-attributed-string ytwAdDetailsLineViewModelHostTextStyleStandard yt-core-attributed-string--white-space-pre-wrap\"]`)){\n            console.log(`%c  ▶  removed ${yo.querySelector(`[class=\"yt-core-attributed-string ytwAdDetailsLineViewModelHostTextStyleStandard yt-core-attributed-string--white-space-pre-wrap\"]`).textContent}'s ad`   ,\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;\")\n        } \n        try{\n        yo.remove()\n        }\n        catch(dih){\n        yo.style.display='none'\n        console.warn(\"%c  ▶ WARNING: Removed via visibility   \",\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;\")\n        }\n        finally{\n            addd()\n        }\n    })   \n}\nasync function infeedBAN(){\n    if(!document.querySelector(`.ytd-rich-section-renderer`)){\n        await wait(500)\n    }\n    document.querySelectorAll(`.ytd-rich-section-renderer`).forEach(sybau=>{\n     try{\n        sybau.remove()\n     }\n     catch(dih){\n        sybau.style.display=\"none\"\n        console.warn(\"%c  ▶ WARNING: Removed via visibility   \",\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;\")\n     }\n     finally{\n            console.log(`%c  ▶  removed premium ad banner`   ,\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;\")\n             addd()\n     }\n    })\n}\ninfeedBAN()\nasync function allPremiumPopupsandBanners(){\n    if(!document.querySelector('.yt-mealbar-promo-renderer')){\n        await wait(500)\n    }\n    {\n        document.querySelectorAll('.yt-mealbar-promo-renderer').forEach(banners=>{\n            try{\n                banners.remove()\n            }\n            catch(err){\n                banners.style.display='none'\n                console.warn(\"%c  ▶ WARNING: Removed via visibility   \",\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;\")\n            }\n            finally{\n            console.log(`%c  ▶  removed premium ad banner`   ,\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;\")\n                addd()\n            }\n        })\n    }\n}\nvisADs()\nwindow.addEventListener(\"pointermove\",visADs)\nasync function rparseLOGO(){\n while(!document.querySelector('.ytd-logo')&&document.querySelector('.mobile-topbar-header-endpoint')){\n    await wait(500)\n    console.error(\"%c  ▶ FAIL: unable to add premium logo   \",\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;\") \n }\n    await dih()\n    console.log(\"%c  ▶ Adding premium logo   \",\"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;\")\n}\nrparseLOGO()\nwindow.addEventListener('click',function(){\nrparseLOGO()\nyo()\nif(sidOPBO==false){\n    sideOpt()\n}\n})\nwindow.addEventListener('pointermove',function(){\nif(sidOPBO==false){\n    sideOpt()\n}\n})\n\n// Call completion to finish\ncompletion(YTPremiumPatch_Version);",
+            "UUID": "EBBEBF46-3B9E-4633-900D-6A584AC16F6D"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+         "WFWorkflowActionParameters": {
+            "WFTextActionText": "1",
+            "UUID": "9365D547-202B-4F4B-8097-9EAB4A652625"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+         "WFWorkflowActionParameters": {
+            "WFTextActionText": "https://raw.githubusercontent.com/tromoSM/tromoSM-assets/main/repos/YT-PREMIUM-PATCH/manifest.json",
+            "UUID": "B524918A-231E-4269-B91B-297AFA824DF0"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.gettext",
+         "WFWorkflowActionParameters": {
+            "WFTextActionText": {
+               "Value": {
+                  "string": "# YT Premium Patch \n\n### Version : v1.5\n### Version/js : \uFFFC\n### Build : crossplaform(stable/public) \n### Date : 2026.6\n### Platform : iOS/macOS/iPadOS\n### AutoUpdate : not supported\n### UpdateCheck : manual/site\n### Activation : manual/each\n### Legal : apache 2.0\n\n###### [Github](https://github.com/tromoSM/YT-Premium-Patch) [feedback or requests](\uFFFC) [YT Premium Patch for firefox](https://addons.mozilla.org/addon/yt-premium/)",
+                  "attachmentsByRange": {
+                     "{348, 1}": {
+                        "VariableName": "Feedback site",
+                        "Type": "Variable"
+                     },
+                     "{57, 1}": {
+                        "OutputUUID": "EBBEBF46-3B9E-4633-900D-6A584AC16F6D",
+                        "Type": "ActionOutput",
+                        "OutputName": "JavaScript Result"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            },
+            "UUID": "DBE650A5-2070-47A4-8E2E-58FE8264E504"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.alert",
+         "WFWorkflowActionParameters": {
+            "WFAlertActionCancelButtonShown": false,
+            "WFAlertActionMessage": "YT Premium Patch activated.",
+            "WFAlertActionTitle": "YT Premium patch"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+         "WFWorkflowActionParameters": {
+            "GroupingIdentifier": "4824FB10-F1A9-4422-97CC-C24942EF2F10",
+            "WFMenuItems": [
+               "Help ❯",
+               "Open Github",
+               "Feedback or request features",
+               "Check for updates",
+               "build info",
+               "× Close "
+            ],
+            "WFControlFlowMode": 0
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+         "WFWorkflowActionParameters": {
+            "WFMenuItemTitle": "Help ❯",
+            "GroupingIdentifier": "4824FB10-F1A9-4422-97CC-C24942EF2F10",
+            "WFControlFlowMode": 1
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+         "WFWorkflowActionParameters": {
+            "WFMenuPrompt": "Contact developer",
+            "WFControlFlowMode": 0,
+            "WFMenuItems": [
+               "Github",
+               "Email",
+               "Feedback site"
+            ],
+            "GroupingIdentifier": "2D37F75B-E51D-4707-841C-6C5B411417C4"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+         "WFWorkflowActionParameters": {
+            "WFMenuItemTitle": "Github",
+            "GroupingIdentifier": "2D37F75B-E51D-4707-841C-6C5B411417C4",
+            "WFControlFlowMode": 1
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.showwebpage",
+         "WFWorkflowActionParameters": {
+            "WFURL": "https://github.com/tromoSM/YT-Premium-Patch/",
+            "UUID": "87520B62-C51F-488A-8FA8-495D85F0FC14"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+         "WFWorkflowActionParameters": {
+            "WFMenuItemTitle": "Email",
+            "GroupingIdentifier": "2D37F75B-E51D-4707-841C-6C5B411417C4",
+            "WFControlFlowMode": 1
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.sendemail",
+         "WFWorkflowActionParameters": {
+            "WFSendEmailActionToRecipients": {
+               "Value": {
+                  "WFContactFieldValues": [
+                     {
+                        "EntryType": 2,
+                        "SerializedEntry": {
+                           "link.contentkit.emailaddress": "tromosm7@gmail.com"
+                        }
+                     }
+                  ]
+               },
+               "WFSerializationType": "WFContactFieldValue"
+            },
+            "WFSendEmailActionSubject": "Help/YT PremiumPatch - ios shortcuts",
+            "UUID": "FD77891E-AAF6-42AF-AA0D-3F8C47274F58",
+            "WFEmailAccountActionSelectedAccount": "tromosm7@gmail.com"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+         "WFWorkflowActionParameters": {
+            "WFMenuItemTitle": "Feedback site",
+            "GroupingIdentifier": "2D37F75B-E51D-4707-841C-6C5B411417C4",
+            "WFControlFlowMode": 1
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.showwebpage",
+         "WFWorkflowActionParameters": {
+            "WFURL": {
+               "Value": {
+                  "string": "\uFFFC",
+                  "attachmentsByRange": {
+                     "{0, 1}": {
+                        "VariableName": "Feedback site",
+                        "Type": "Variable"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            }
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+         "WFWorkflowActionParameters": {
+            "WFControlFlowMode": 2,
+            "GroupingIdentifier": "2D37F75B-E51D-4707-841C-6C5B411417C4",
+            "UUID": "C2774C40-D4B2-4E41-919E-E8073D988B24"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+         "WFWorkflowActionParameters": {
+            "WFMenuItemTitle": "Open Github",
+            "GroupingIdentifier": "4824FB10-F1A9-4422-97CC-C24942EF2F10",
+            "WFControlFlowMode": 1
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.showwebpage",
+         "WFWorkflowActionParameters": {
+            "WFURL": "https://github.com/tromoSM/YT-Premium-Patch/",
+            "UUID": "4434BF9A-127D-4A28-A5C4-C6D9C8F867F6"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+         "WFWorkflowActionParameters": {
+            "WFMenuItemTitle": "Feedback or request features",
+            "GroupingIdentifier": "4824FB10-F1A9-4422-97CC-C24942EF2F10",
+            "WFControlFlowMode": 1
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.showwebpage",
+         "WFWorkflowActionParameters": {
+            "WFURL": {
+               "Value": {
+                  "string": "\uFFFC",
+                  "attachmentsByRange": {
+                     "{0, 1}": {
+                        "VariableName": "Feedback site",
+                        "Type": "Variable"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            },
+            "UUID": "6A861E60-6BF7-404E-A10B-729089B2BEF3"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+         "WFWorkflowActionParameters": {
+            "WFMenuItemTitle": "Check for updates",
+            "GroupingIdentifier": "4824FB10-F1A9-4422-97CC-C24942EF2F10",
+            "WFControlFlowMode": 1
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.downloadurl",
+         "WFWorkflowActionParameters": {
+            "ShowHeaders": false,
+            "UUID": "38C2B570-5FED-4834-9637-9B2AFBB6103A",
+            "WFURL": {
+               "Value": {
+                  "string": "\uFFFC",
+                  "attachmentsByRange": {
+                     "{0, 1}": {
+                        "OutputUUID": "B524918A-231E-4269-B91B-297AFA824DF0",
+                        "Type": "ActionOutput",
+                        "OutputName": "Text"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            },
+            "WFHTTPMethod": "GET"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.detect.dictionary",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "OutputUUID": "38C2B570-5FED-4834-9637-9B2AFBB6103A",
+                  "Type": "ActionOutput",
+                  "OutputName": "Contents of URL"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "UUID": "803DFCCD-7105-4FA7-B838-A1DCD2EA3017"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.getvalueforkey",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "OutputUUID": "803DFCCD-7105-4FA7-B838-A1DCD2EA3017",
+                  "Type": "ActionOutput",
+                  "OutputName": "Dictionary"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "UUID": "8B83B9E7-8521-4023-AEEC-11728FB2A212",
+            "WFGetDictionaryValueType": "Value",
+            "WFDictionaryKey": "update.safari.update_count"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.detect.number",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "OutputUUID": "8B83B9E7-8521-4023-AEEC-11728FB2A212",
+                  "Type": "ActionOutput",
+                  "OutputName": "Dictionary Value"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "UUID": "51A62BF7-11F1-4A95-9B82-DE37CB6B29D6"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.detect.number",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "OutputUUID": "9365D547-202B-4F4B-8097-9EAB4A652625",
+                  "Type": "ActionOutput",
+                  "OutputName": "Text"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "UUID": "540D02D1-BCCD-4B0D-82C4-8B747843FBB3"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+         "WFWorkflowActionParameters": {
+            "GroupingIdentifier": "5FC7A649-D10A-4548-8D98-2F969D4B625C",
+            "WFInput": {
+               "Type": "Variable",
+               "Variable": {
+                  "Value": {
+                     "OutputUUID": "51A62BF7-11F1-4A95-9B82-DE37CB6B29D6",
+                     "Type": "ActionOutput",
+                     "OutputName": "Numbers"
+                  },
+                  "WFSerializationType": "WFTextTokenAttachment"
+               }
+            },
+            "WFControlFlowMode": 0,
+            "WFNumberValue": {
+               "Value": {
+                  "OutputUUID": "540D02D1-BCCD-4B0D-82C4-8B747843FBB3",
+                  "Type": "ActionOutput",
+                  "OutputName": "Numbers"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "WFCondition": 5
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+         "WFWorkflowActionParameters": {
+            "GroupingIdentifier": "074E2EFA-8E4D-474C-8E01-9A6E24DC5FC2",
+            "WFMenuItems": [
+               "Whats new",
+               "Download update",
+               "Cancel"
+            ],
+            "WFControlFlowMode": 0
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+         "WFWorkflowActionParameters": {
+            "WFMenuItemTitle": "Whats new",
+            "GroupingIdentifier": "074E2EFA-8E4D-474C-8E01-9A6E24DC5FC2",
+            "WFControlFlowMode": 1
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.getvalueforkey",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "OutputUUID": "803DFCCD-7105-4FA7-B838-A1DCD2EA3017",
+                  "Type": "ActionOutput",
+                  "OutputName": "Dictionary"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "UUID": "A4CF16CE-2A3E-44E6-BA4A-8735314EAC3B",
+            "WFGetDictionaryValueType": "Value",
+            "WFDictionaryKey": "update.safari.update_features"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.repeat.each",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "OutputUUID": "A4CF16CE-2A3E-44E6-BA4A-8735314EAC3B",
+                  "Type": "ActionOutput",
+                  "OutputName": "Dictionary Value"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "GroupingIdentifier": "18AF0B12-0BD7-4945-B764-AC6DAE28B4CE",
+            "WFControlFlowMode": 0
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.appendvariable",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "VariableName": "Repeat Item",
+                  "Type": "Variable"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "WFVariableName": "Features"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.repeat.each",
+         "WFWorkflowActionParameters": {
+            "WFControlFlowMode": 2,
+            "GroupingIdentifier": "18AF0B12-0BD7-4945-B764-AC6DAE28B4CE",
+            "UUID": "497BC777-1298-4E50-88F5-609A361D40EB"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.alert",
+         "WFWorkflowActionParameters": {
+            "WFAlertActionCancelButtonShown": false,
+            "WFAlertActionMessage": {
+               "Value": {
+                  "string": "\uFFFC",
+                  "attachmentsByRange": {
+                     "{0, 1}": {
+                        "VariableName": "Features",
+                        "Type": "Variable"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            },
+            "WFAlertActionTitle": "What's new"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+         "WFWorkflowActionParameters": {
+            "WFMenuItemTitle": "Download update",
+            "GroupingIdentifier": "074E2EFA-8E4D-474C-8E01-9A6E24DC5FC2",
+            "WFControlFlowMode": 1
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.getvalueforkey",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "OutputUUID": "803DFCCD-7105-4FA7-B838-A1DCD2EA3017",
+                  "Type": "ActionOutput",
+                  "OutputName": "Dictionary"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "UUID": "84A49630-88CB-4172-9F01-CC5E0D02D37C",
+            "WFGetDictionaryValueType": "Value",
+            "WFDictionaryKey": "update.safari.update_url"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.openurl",
+         "WFWorkflowActionParameters": {
+            "Show-WFInput": true,
+            "WFInput": {
+               "Value": {
+                  "OutputUUID": "84A49630-88CB-4172-9F01-CC5E0D02D37C",
+                  "Type": "ActionOutput",
+                  "OutputName": "Dictionary Value"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "UUID": "1B454002-77C3-46C0-BD9A-7A57BF068E58"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+         "WFWorkflowActionParameters": {
+            "WFMenuItemTitle": "Cancel",
+            "GroupingIdentifier": "074E2EFA-8E4D-474C-8E01-9A6E24DC5FC2",
+            "WFControlFlowMode": 1
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+         "WFWorkflowActionParameters": {
+            "WFControlFlowMode": 2,
+            "GroupingIdentifier": "074E2EFA-8E4D-474C-8E01-9A6E24DC5FC2",
+            "UUID": "43F42F4C-2252-4927-B701-F010841C48D4"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+         "WFWorkflowActionParameters": {
+            "GroupingIdentifier": "5FC7A649-D10A-4548-8D98-2F969D4B625C",
+            "WFControlFlowMode": 1
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.alert",
+         "WFWorkflowActionParameters": {
+            "WFAlertActionCancelButtonShown": false,
+            "WFAlertActionMessage": "YT Premium Patch is up to date.",
+            "WFAlertActionTitle": "YT Premium Patch"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.conditional",
+         "WFWorkflowActionParameters": {
+            "WFControlFlowMode": 2,
+            "GroupingIdentifier": "5FC7A649-D10A-4548-8D98-2F969D4B625C",
+            "UUID": "442AC0B2-E4C1-4B49-B273-ED4861A04196"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+         "WFWorkflowActionParameters": {
+            "WFMenuItemTitle": "build info",
+            "GroupingIdentifier": "4824FB10-F1A9-4422-97CC-C24942EF2F10",
+            "WFControlFlowMode": 1
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.getrichtextfrommarkdown",
+         "WFWorkflowActionParameters": {
+            "WFInput": {
+               "Value": {
+                  "OutputUUID": "DBE650A5-2070-47A4-8E2E-58FE8264E504",
+                  "Type": "ActionOutput",
+                  "OutputName": "Text"
+               },
+               "WFSerializationType": "WFTextTokenAttachment"
+            },
+            "UUID": "CDCDD02D-D954-4183-8CA5-F021F260F35C"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.showwebpage",
+         "WFWorkflowActionParameters": {
+            "WFURL": {
+               "Value": {
+                  "string": "\uFFFC",
+                  "attachmentsByRange": {
+                     "{0, 1}": {
+                        "OutputUUID": "CDCDD02D-D954-4183-8CA5-F021F260F35C",
+                        "Type": "ActionOutput",
+                        "OutputName": "Rich Text from Markdown"
+                     }
+                  }
+               },
+               "WFSerializationType": "WFTextTokenString"
+            },
+            "UUID": "E94FD852-E253-481C-8AB8-475215A6C98E"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+         "WFWorkflowActionParameters": {
+            "WFMenuItemTitle": "× Close ",
+            "GroupingIdentifier": "4824FB10-F1A9-4422-97CC-C24942EF2F10",
+            "WFControlFlowMode": 1
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.choosefrommenu",
+         "WFWorkflowActionParameters": {
+            "WFControlFlowMode": 2,
+            "GroupingIdentifier": "4824FB10-F1A9-4422-97CC-C24942EF2F10",
+            "UUID": "0DDB637B-33F7-44C8-BF23-150FD7BF4003"
+         }
+      },
+      {
+         "WFWorkflowActionIdentifier": "is.workflow.actions.comment",
+         "WFWorkflowActionParameters": {
+            "WFCommentActionText": "© 2026 tromoSM. Licensed under apache 2.0."
+         }
+      }
+   ],
+   "WFWorkflowInputContentItemClasses": [
+      "WFSafariWebPageContentItem",
+      "WFPhoneNumberContentItem"
+   ],
+   "WFWorkflowImportQuestions": [],
+   "WFQuickActionSurfaces": [],
+   "WFWorkflowTypes": [
+      "ActionExtension"
+   ],
+   "WFWorkflowHasShortcutInputVariables": true
+}

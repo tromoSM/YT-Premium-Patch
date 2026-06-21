@@ -1,0 +1,1410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>WFQuickActionSurfaces</key>
+	<array/>
+	<key>WFWorkflowActions</key>
+	<array>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.gettext</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>UUID</key>
+				<string>5A67E2E1-C900-4EB5-8730-C922D36F6D71</string>
+				<key>WFTextActionText</key>
+				<string>http://tromosm.gt.tc/?feedback=true&amp;utm_source=yt_shortcut</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.setvariable</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>WFInput</key>
+				<dict>
+					<key>Value</key>
+					<dict>
+						<key>OutputName</key>
+						<string>Text</string>
+						<key>OutputUUID</key>
+						<string>5A67E2E1-C900-4EB5-8730-C922D36F6D71</string>
+						<key>Type</key>
+						<string>ActionOutput</string>
+					</dict>
+					<key>WFSerializationType</key>
+					<string>WFTextTokenAttachment</string>
+				</dict>
+				<key>WFVariableName</key>
+				<string>Feedback site</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.comment</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>WFCommentActionText</key>
+				<string>YT Premium Patch is open-source.
+
+Github : https://github.com/tromoSM/YT-Premium-Patch
+
+Feedback/requests: http://tromosm.gt.tc/?feedback=true&amp;utm_source=yt_shortcut</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.comment</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>WFCommentActionText</key>
+				<string>YT Premium Patch for  (v1.5/26.06) - no auto update.
+
+YT Premium patch is experimental on safari and cannot be directly injected or activated permenatly.
+
+For users:
+   - Go to https://youtube.com/ (not m.youtube.com and don’t let safari open the youtube app
+   - Click share icon on safari page and scroll to the bottom until you find “Activate YT Premium Patch” and click it and wait until you see “YT Premium patch activated”.
+   - YT Premium patch cannot be activated forever due to apple’s restrictions and will be deactivated automatically after refreshing page.</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.runjavascriptonwebpage</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>UUID</key>
+				<string>EBBEBF46-3B9E-4633-900D-6A584AC16F6D</string>
+				<key>WFInput</key>
+				<dict>
+					<key>Value</key>
+					<dict>
+						<key>Type</key>
+						<string>ExtensionInput</string>
+					</dict>
+					<key>WFSerializationType</key>
+					<string>WFTextTokenAttachment</string>
+				</dict>
+				<key>WFJavaScript</key>
+				<string>/*
+Copyright 2026 tromoSM
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+tromoSM/YT-Premium-Patch 
+main.js
+
+v1.5
+*/
+if(location.hostname!=="www.youtube.com"&amp;&amp;location.hostname!=="m.youtube.com"){
+    throw ""
+}
+let YTPremiumPatch_Version='v1.5'
+
+const countr=document.createElement("script")
+countr.textContent=`
+var YTPremiumPatch_SessionADCount=0
+if(localStorage.getItem("tromoSM_YTPREMIUMPATCH_DONOTCHANGE")){
+var YTPremiumPatch_ADCount=parseInt(localStorage.getItem("tromoSM_YTPREMIUMPATCH_DONOTCHANGE"))
+}
+else{
+localStorage.setItem("tromoSM_YTPREMIUMPATCH_DONOTCHANGE",0)
+var YTPremiumPatch_ADCount=0
+}
+function add(){
+    YTPremiumPatch_ADCount++
+    YTPremiumPatch_SessionADCount++
+    localStorage.setItem("tromoSM_YTPREMIUMPATCH_DONOTCHANGE",YTPremiumPatch_ADCount)
+}
+console.log(YTPremiumPatch_ADCount)
+console.log(YTPremiumPatch_SessionADCount)
+let coun=document.createElement("button")
+document.body.appendChild(coun)
+coun.addEventListener('click',add)
+coun.setAttribute('tromoSM_YTPATCH',"counter")`
+
+document.documentElement.appendChild(countr)
+
+function addd(){
+    if(document.querySelector(`[tromoSM_YTPATCH="counter"]`)){
+      document.querySelector(`[tromoSM_YTPATCH="counter"]`).click()
+    }
+    else{
+    console.log("%c  ▶ FAIL: ADS ARE NOT BEING COUNTED ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;") 
+    }
+}
+console.log(`%c  ▶ YT Premium by tromoSM %c ${YTPremiumPatch_Version} `,"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:20px;border-radius:50px;",'font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);border-radius:50px;margin-left:5px;padding:0px 1px;')
+
+console.log("")
+if(localStorage.getItem("tromoSM_YTPREMIUMPATCH_DONOTCHANGE")){
+console.log(`%c  ▶ ${localStorage.getItem("tromoSM_YTPREMIUMPATCH_DONOTCHANGE")} Ads blocked since install  `,"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
+}
+
+window.wait=function(dih){
+        return new Promise(resolve=&gt;setTimeout(resolve,dih))
+}
+window.dih=async function(){
+    while(!document.querySelector('[id^="youtube-paths_yt"]')){
+        await wait(500)
+    }
+    document.querySelectorAll('[id^="youtube-paths_yt"]').forEach(logo=&gt;{
+        logo.replaceChildren()
+    })
+    const p=[
+    "M32.1819 2.10016V18.9002H34.7619V12.9102H35.4519C38.8019 12.9102 40.5619 11.1102 40.5619 7.57016V6.88016C40.5619 3.31016 39.0019 2.10016 35.7219 2.10016H32.1819ZM37.8619 7.63016C37.8619 10.0002 37.1419 11.0802 35.4019 11.0802H34.7619V3.95016H35.4519C37.4219 3.95016 37.8619 4.76016 37.8619 7.13016V7.63016Z",
+    "M41.982 18.9002H44.532V10.0902C44.952 9.37016 45.992 9.05016 47.302 9.32016L47.462 6.33016C47.292 6.31016 47.142 6.29016 47.002 6.29016C45.802 6.29016 44.832 7.20016 44.342 8.86016H44.162L43.952 6.54016H41.982V18.9002Z",
+    "M55.7461 11.5002C55.7461 8.52016 55.4461 6.31016 52.0161 6.31016C48.7861 6.31016 48.0661 8.46016 48.0661 11.6202V13.7902C48.0661 16.8702 48.7261 19.1102 51.9361 19.1102C54.4761 19.1102 55.7861 17.8402 55.6361 15.3802L53.3861 15.2602C53.3561 16.7802 53.0061 17.4002 51.9961 17.4002C50.7261 17.4002 50.6661 16.1902 50.6661 14.3902V13.5502H55.7461V11.5002ZM51.9561 7.97016C53.1761 7.97016 53.2661 9.12016 53.2661 11.0702V12.0802H50.6661V11.0702C50.6661 9.14016 50.7461 7.97016 51.9561 7.97016Z",
+    "M60.1945 18.9002V8.92016C60.5745 8.39016 61.1945 8.07016 61.7945 8.07016C62.5645 8.07016 62.8445 8.61016 62.8445 9.69016V18.9002H65.5045L65.4845 8.93016C65.8545 8.37016 66.4845 8.04016 67.1045 8.04016C67.7745 8.04016 68.1445 8.61016 68.1445 9.69016V18.9002H70.8045V9.49016C70.8045 7.28016 70.0145 6.27016 68.3445 6.27016C67.1845 6.27016 66.1945 6.69016 65.2845 7.67016C64.9045 6.76016 64.1545 6.27016 63.0845 6.27016C61.8745 6.27016 60.7345 6.79016 59.9345 7.76016H59.7845L59.5945 6.54016H57.5445V18.9002H60.1945Z",
+    "M74.0858 4.97016C74.9858 4.97016 75.4058 4.67016 75.4058 3.43016C75.4058 2.27016 74.9558 1.91016 74.0858 1.91016C73.2058 1.91016 72.7758 2.23016 72.7758 3.43016C72.7758 4.67016 73.1858 4.97016 74.0858 4.97016ZM72.8658 18.9002H75.3958V6.54016H72.8658V18.9002Z",
+    "M79.9516 19.0902C81.4116 19.0902 82.3216 18.4802 83.0716 17.3802H83.1816L83.2916 18.9002H85.2816V6.54016H82.6416V16.4702C82.3616 16.9602 81.7116 17.3202 81.1016 17.3202C80.3316 17.3202 80.0916 16.7102 80.0916 15.6902V6.54016H77.4616V15.8102C77.4616 17.8202 78.0416 19.0902 79.9516 19.0902Z",
+    "M90.0031 18.9002V8.92016C90.3831 8.39016 91.0031 8.07016 91.6031 8.07016C92.3731 8.07016 92.6531 8.61016 92.6531 9.69016V18.9002H95.3131L95.2931 8.93016C95.6631 8.37016 96.2931 8.04016 96.9131 8.04016C97.5831 8.04016 97.9531 8.61016 97.9531 9.69016V18.9002H100.613V9.49016C100.613 7.28016 99.8231 6.27016 98.1531 6.27016C96.9931 6.27016 96.0031 6.69016 95.0931 7.67016C94.7131 6.76016 93.9631 6.27016 92.8931 6.27016C91.6831 6.27016 90.5431 6.79016 89.7431 7.76016H89.5931L89.4031 6.54016H87.3531V18.9002H90.0031Z"
+    ]
+    p.forEach(dih=&gt;{
+        document.querySelectorAll('[id^="youtube-paths_yt"]').forEach(logo=&gt;{
+         let d= document.createElementNS("http://www.w3.org/2000/svg","path")
+         d.setAttribute('d',dih)
+         logo.appendChild(d)
+        })
+    })
+    let logolist=[".logo-in-player.full-logo",".mobile-topbar-logo.full-logo",'#logo-icon']
+    logolist.forEach(logo=&gt;{
+        if(document.querySelector(logo)){
+            document.querySelectorAll(logo).forEach(eachlogo=&gt;{
+                eachlogo.style.width='110px'
+            })
+        }
+    })
+    document.querySelector('[id^="youtube-paths_yt"]').setAttribute('youtube-paths-ch','true')
+}
+
+window.mobile=async function(){
+    await window.dih
+}
+let MobileReportOnly=0
+try{
+ if(location.hostname=="m.youtube.com"){
+   setInterval(()=&gt;{
+    if(document.querySelector('[id^="youtube-paths_yt"]')){
+     if(document.querySelector('[id^="youtube-paths_yt"]').getAttribute('youtube-paths-ch')!='true'){
+      window.mobile()
+     } 
+    }
+   },100)
+ }
+}
+catch(error){
+    if(MobileReportOnly==0){
+    MobileReportOnly=1
+    console.error(`%c  ▶ FAIL: ${error}`,"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;") 
+    }
+}
+window.addEventListener('click',async function(){
+   await window.dih()
+})
+function refreshdih(){
+    if(document.querySelector(".html5-video-player.ad-showing")){
+        if(document.querySelector(".ytwPanelAdHeaderImageLockupViewModelHost")){
+            document.querySelectorAll(".ytwPanelAdHeaderImageLockupViewModelHost").forEach(sidead=&gt;{
+              try{
+                sidead.remove()
+                addd()
+                console.log("%c  ▶ Removed ad card   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
+              }
+              catch(e){
+                console.warn("%c  ▶ WARNING: Removed via visibility   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;")
+                sidead.style.display='none'
+                console.log("%c  ▶ Removed ad card   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
+              }
+            })
+        }
+        if(document.querySelector("#content.ytd-engagement-panel-section-list-renderer")){
+            document.querySelectorAll("#content.ytd-engagement-panel-section-list-renderer").forEach(adsurvey=&gt;{
+                try{
+                    adsurvey.remove()
+                    addd()
+                }
+                catch(dih){
+                console.warn(`%c  ▶ WARNING: Removed via visibility : ${dih}   `,"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;")
+                adsurvey.style.display="none"
+                }
+                finally{
+                console.log("%c  ▶ Removed ad survey   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
+                }
+            })
+        }
+        if(document.querySelector(`[class="ytp-ad-player-overlay-layout__player-card-container"]`)){
+            document.querySelectorAll(`[class="ytp-ad-player-overlay-layout__player-card-container"]`).forEach(advatar=&gt;{
+                try{
+                    advatar.remove()
+                    addd()
+                }
+                catch(dih){
+                console.warn(`%c  ▶ WARNING: Removed via visibility : ${dih}   `,"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;")
+                advatar.style.display="none"
+                }
+                finally{
+                console.log("%c  ▶ Removed ad overlay card   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
+                }
+            })
+        }
+        if(document.querySelector(`.ytwTopBannerImageTextIconButtonedLayoutViewModelHost`)){
+            document.querySelectorAll.forEach(sidehostinfo=&gt;{
+                try{
+                    sidehostinfo.remove()
+                    addd()
+                }
+                catch(dih){
+                console.warn(`%c  ▶ WARNING: Removed via visibility : ${dih}   `,"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;")
+                sidehostinfo.style.display="none"
+                }
+                finally{
+                console.log("%c  ▶ Removed Ad host info from sidebar   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
+                }
+            })
+        }
+ document.querySelectorAll(".html5-video-player.ad-showing").forEach(dih=&gt;{
+    if(document.querySelector('[id^="skip-button"]')){
+       document.querySelectorAll('[id^="skip-button"]').forEach(dih=&gt;{
+        dih.click()
+       console.log("%c  ▶ Skipping ad   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
+       })
+    }
+    dih.querySelector('video').playbackRate=100
+    console.log("%c  ▶ Speeding up the ad   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
+    document.querySelector(".html5-video-player.ad-showing").querySelector('video').style.filter='blur(10px) brightness(0.9)' 
+    addd()
+ }) 
+}
+else{
+    document.querySelector(`.html5-video-player`).querySelector('video').playbackRate=1
+    document.querySelector(`.html5-video-player`).querySelector('video').style.filter='none' 
+}
+}
+const op={
+    attributes:true
+}
+function win(m,ob){
+    m.forEach(function(iguessbro){
+        if(iguessbro.type=='attributes'&amp;&amp;iguessbro.attributeName=="class"){
+            refreshdih()
+        }
+    })
+}
+const o=new MutationObserver(win)
+ async function yo(){
+     while(!document.querySelector(`.html5-video-player`)){
+        await wait(600)
+     }
+     o.observe(document.querySelector(`.html5-video-player`),op)
+     console.log("%c  ▶ Applying patch   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
+    }
+    yo()
+async function StudentBann(){
+    if(!document.querySelector('ytd-statement-banner-renderer')){
+        await wait(600)
+    }
+    document.querySelectorAll(`.ytd-statement-banner-renderer`).forEach(sB=&gt;{
+        try{
+            sB.remove()
+        }
+        catch(dih){
+            sB.style.display='none'
+            console.warn(`%c  ▶ WARNING: Removed via visibility - ${dih}`,"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;")
+        }
+        finally{
+            addd()
+        }
+    })
+}
+StudentBann()
+async function smartRenderer(){
+    if(!document.querySelector(`.ytwTopBannerImageTextIconButtonedLayoutViewModelHost `)){
+        await wait(600)
+    }
+    document.querySelectorAll(`.ytwTopBannerImageTextIconButtonedLayoutViewModelHost `).forEach(sR=&gt;{
+        try{
+            sR.remove()
+        }
+        catch(dih){
+            sR.style.display="none"
+            console.warn(`%c  ▶ WARNING: Removed via visibility - ${dih}`,"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;")
+        }
+        finally{
+            addd()
+        }
+    })
+}
+smartRenderer()
+/*
+rem yt-simple-endpoint style-scope ytd-guide-entry-renderer if ins title style-scope ytd-guide-entry-renderer 'Youtube Premium'
+ */
+let sidOPBO=false
+async function sideOpt(){
+    if(!document.querySelector(`[class="title style-scope ytd-guide-entry-renderer"]`)&amp;&amp;document.querySelector('[class="ytAttributedStringHost"][role="text"]')){
+        await wait(500)
+    }
+    if(document.querySelector('[class="ytAttributedStringHost"][role="text"]')){
+        document.querySelectorAll('[class="ytAttributedStringHost"][role="text"]').forEach(text=&gt;{
+            if(text.innerText.includes('Get YouTube Premium')){
+                try{
+                    text.closest('ytm-compact-link-renderer').remove()
+                    sidOPBO=true
+                }
+                catch(err){
+                    text.closest('ytm-compact-link-renderer').style.display='none'
+                    console.error(err)
+                    console.warn("%c  ▶ WARNING: Removed via visibility   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;")
+                }
+            }
+        })
+    }
+    if(document.querySelector(`[class="title style-scope ytd-guide-entry-renderer"]`)){
+    document.querySelectorAll(`[class="title style-scope ytd-guide-entry-renderer"]`).forEach(inT=&gt;{
+            if(inT.innerHTML.includes('Premium')){
+                try{
+                  inT.closest(`[id="endpoint"]`).remove()
+                  sidOPBO=true
+                 }
+                catch(dih){
+                  console.error(dih)
+                 } 
+            }
+    })
+   }
+    
+}
+sideOpt()
+async function visADs(){
+    if(!document.querySelector(`.ytd-in-feed-ad-layout-renderer`)){
+    await wait(500)
+    }
+    document.querySelectorAll(`.ytd-in-feed-ad-layout-renderer`).forEach(yo=&gt;{
+        if(yo.querySelector(`[class="yt-core-attributed-string ytwAdDetailsLineViewModelHostTextStyleStandard yt-core-attributed-string--white-space-pre-wrap"]`)){
+            console.log(`%c  ▶  removed ${yo.querySelector(`[class="yt-core-attributed-string ytwAdDetailsLineViewModelHostTextStyleStandard yt-core-attributed-string--white-space-pre-wrap"]`).textContent}'s ad`   ,"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
+        } 
+        try{
+        yo.remove()
+        }
+        catch(dih){
+        yo.style.display='none'
+        console.warn("%c  ▶ WARNING: Removed via visibility   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;")
+        }
+        finally{
+            addd()
+        }
+    })   
+}
+async function infeedBAN(){
+    if(!document.querySelector(`.ytd-rich-section-renderer`)){
+        await wait(500)
+    }
+    document.querySelectorAll(`.ytd-rich-section-renderer`).forEach(sybau=&gt;{
+     try{
+        sybau.remove()
+     }
+     catch(dih){
+        sybau.style.display="none"
+        console.warn("%c  ▶ WARNING: Removed via visibility   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;")
+     }
+     finally{
+            console.log(`%c  ▶  removed premium ad banner`   ,"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
+             addd()
+     }
+    })
+}
+infeedBAN()
+async function allPremiumPopupsandBanners(){
+    if(!document.querySelector('.yt-mealbar-promo-renderer')){
+        await wait(500)
+    }
+    {
+        document.querySelectorAll('.yt-mealbar-promo-renderer').forEach(banners=&gt;{
+            try{
+                banners.remove()
+            }
+            catch(err){
+                banners.style.display='none'
+                console.warn("%c  ▶ WARNING: Removed via visibility   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;")
+            }
+            finally{
+            console.log(`%c  ▶  removed premium ad banner`   ,"font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
+                addd()
+            }
+        })
+    }
+}
+visADs()
+window.addEventListener("pointermove",visADs)
+async function rparseLOGO(){
+ while(!document.querySelector('.ytd-logo')&amp;&amp;document.querySelector('.mobile-topbar-header-endpoint')){
+    await wait(500)
+    console.error("%c  ▶ FAIL: unable to add premium logo   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,red,red);color:white;font-size:17px;border-radius:50px;") 
+ }
+    await dih()
+    console.log("%c  ▶ Adding premium logo   ","font-family:Roboto,Arial,SF Pro;background:linear-gradient(90deg,#FF0033,#FF0035);color:white;font-size:17px;border-radius:50px;")
+}
+rparseLOGO()
+window.addEventListener('click',function(){
+rparseLOGO()
+yo()
+if(sidOPBO==false){
+    sideOpt()
+}
+})
+window.addEventListener('pointermove',function(){
+if(sidOPBO==false){
+    sideOpt()
+}
+})
+
+// Call completion to finish
+completion(YTPremiumPatch_Version);</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.gettext</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>UUID</key>
+				<string>9365D547-202B-4F4B-8097-9EAB4A652625</string>
+				<key>WFTextActionText</key>
+				<string>1</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.gettext</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>UUID</key>
+				<string>B524918A-231E-4269-B91B-297AFA824DF0</string>
+				<key>WFTextActionText</key>
+				<string>https://raw.githubusercontent.com/tromoSM/tromoSM-assets/main/repos/YT-PREMIUM-PATCH/manifest.json</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.gettext</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>UUID</key>
+				<string>DBE650A5-2070-47A4-8E2E-58FE8264E504</string>
+				<key>WFTextActionText</key>
+				<dict>
+					<key>Value</key>
+					<dict>
+						<key>attachmentsByRange</key>
+						<dict>
+							<key>{348, 1}</key>
+							<dict>
+								<key>Type</key>
+								<string>Variable</string>
+								<key>VariableName</key>
+								<string>Feedback site</string>
+							</dict>
+							<key>{57, 1}</key>
+							<dict>
+								<key>OutputName</key>
+								<string>JavaScript Result</string>
+								<key>OutputUUID</key>
+								<string>EBBEBF46-3B9E-4633-900D-6A584AC16F6D</string>
+								<key>Type</key>
+								<string>ActionOutput</string>
+							</dict>
+						</dict>
+						<key>string</key>
+						<string># YT Premium Patch 
+
+### Version : v1.5
+### Version/js : &#xFFFC;
+### Build : crossplaform(stable/public) 
+### Date : 2026.6
+### Platform : iOS/macOS/iPadOS
+### AutoUpdate : not supported
+### UpdateCheck : manual/site
+### Activation : manual/each
+### Legal : apache 2.0
+
+###### [Github](https://github.com/tromoSM/YT-Premium-Patch) [feedback or requests](&#xFFFC;) [YT Premium Patch for firefox](https://addons.mozilla.org/addon/yt-premium/)</string>
+					</dict>
+					<key>WFSerializationType</key>
+					<string>WFTextTokenString</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.alert</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>WFAlertActionCancelButtonShown</key>
+				<false/>
+				<key>WFAlertActionMessage</key>
+				<string>YT Premium Patch activated.</string>
+				<key>WFAlertActionTitle</key>
+				<string>YT Premium patch</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.choosefrommenu</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>4824FB10-F1A9-4422-97CC-C24942EF2F10</string>
+				<key>WFControlFlowMode</key>
+				<integer>0</integer>
+				<key>WFMenuItems</key>
+				<array>
+					<string>Help ❯</string>
+					<string>Open Github</string>
+					<string>Feedback or request features</string>
+					<string>Check for updates</string>
+					<string>build info</string>
+					<string>× Close </string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.choosefrommenu</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>4824FB10-F1A9-4422-97CC-C24942EF2F10</string>
+				<key>WFControlFlowMode</key>
+				<integer>1</integer>
+				<key>WFMenuItemTitle</key>
+				<string>Help ❯</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.choosefrommenu</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>2D37F75B-E51D-4707-841C-6C5B411417C4</string>
+				<key>WFControlFlowMode</key>
+				<integer>0</integer>
+				<key>WFMenuItems</key>
+				<array>
+					<string>Github</string>
+					<string>Email</string>
+					<string>Feedback site</string>
+				</array>
+				<key>WFMenuPrompt</key>
+				<string>Contact developer</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.choosefrommenu</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>2D37F75B-E51D-4707-841C-6C5B411417C4</string>
+				<key>WFControlFlowMode</key>
+				<integer>1</integer>
+				<key>WFMenuItemTitle</key>
+				<string>Github</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.showwebpage</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>UUID</key>
+				<string>87520B62-C51F-488A-8FA8-495D85F0FC14</string>
+				<key>WFURL</key>
+				<string>https://github.com/tromoSM/YT-Premium-Patch/</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.choosefrommenu</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>2D37F75B-E51D-4707-841C-6C5B411417C4</string>
+				<key>WFControlFlowMode</key>
+				<integer>1</integer>
+				<key>WFMenuItemTitle</key>
+				<string>Email</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.sendemail</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>UUID</key>
+				<string>FD77891E-AAF6-42AF-AA0D-3F8C47274F58</string>
+				<key>WFEmailAccountActionSelectedAccount</key>
+				<string>tromosm7@gmail.com</string>
+				<key>WFSendEmailActionSubject</key>
+				<string>Help/YT PremiumPatch - ios shortcuts</string>
+				<key>WFSendEmailActionToRecipients</key>
+				<dict>
+					<key>Value</key>
+					<dict>
+						<key>WFContactFieldValues</key>
+						<array>
+							<dict>
+								<key>EntryType</key>
+								<integer>2</integer>
+								<key>SerializedEntry</key>
+								<dict>
+									<key>link.contentkit.emailaddress</key>
+									<string>tromosm7@gmail.com</string>
+								</dict>
+							</dict>
+						</array>
+					</dict>
+					<key>WFSerializationType</key>
+					<string>WFContactFieldValue</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.choosefrommenu</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>2D37F75B-E51D-4707-841C-6C5B411417C4</string>
+				<key>WFControlFlowMode</key>
+				<integer>1</integer>
+				<key>WFMenuItemTitle</key>
+				<string>Feedback site</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.showwebpage</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>WFURL</key>
+				<dict>
+					<key>Value</key>
+					<dict>
+						<key>attachmentsByRange</key>
+						<dict>
+							<key>{0, 1}</key>
+							<dict>
+								<key>Type</key>
+								<string>Variable</string>
+								<key>VariableName</key>
+								<string>Feedback site</string>
+							</dict>
+						</dict>
+						<key>string</key>
+						<string>&#xFFFC;</string>
+					</dict>
+					<key>WFSerializationType</key>
+					<string>WFTextTokenString</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.choosefrommenu</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>2D37F75B-E51D-4707-841C-6C5B411417C4</string>
+				<key>UUID</key>
+				<string>C2774C40-D4B2-4E41-919E-E8073D988B24</string>
+				<key>WFControlFlowMode</key>
+				<integer>2</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.choosefrommenu</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>4824FB10-F1A9-4422-97CC-C24942EF2F10</string>
+				<key>WFControlFlowMode</key>
+				<integer>1</integer>
+				<key>WFMenuItemTitle</key>
+				<string>Open Github</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.showwebpage</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>UUID</key>
+				<string>4434BF9A-127D-4A28-A5C4-C6D9C8F867F6</string>
+				<key>WFURL</key>
+				<string>https://github.com/tromoSM/YT-Premium-Patch/</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.choosefrommenu</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>4824FB10-F1A9-4422-97CC-C24942EF2F10</string>
+				<key>WFControlFlowMode</key>
+				<integer>1</integer>
+				<key>WFMenuItemTitle</key>
+				<string>Feedback or request features</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.showwebpage</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>UUID</key>
+				<string>6A861E60-6BF7-404E-A10B-729089B2BEF3</string>
+				<key>WFURL</key>
+				<dict>
+					<key>Value</key>
+					<dict>
+						<key>attachmentsByRange</key>
+						<dict>
+							<key>{0, 1}</key>
+							<dict>
+								<key>Type</key>
+								<string>Variable</string>
+								<key>VariableName</key>
+								<string>Feedback site</string>
+							</dict>
+						</dict>
+						<key>string</key>
+						<string>&#xFFFC;</string>
+					</dict>
+					<key>WFSerializationType</key>
+					<string>WFTextTokenString</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.choosefrommenu</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>4824FB10-F1A9-4422-97CC-C24942EF2F10</string>
+				<key>WFControlFlowMode</key>
+				<integer>1</integer>
+				<key>WFMenuItemTitle</key>
+				<string>Check for updates</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.downloadurl</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>ShowHeaders</key>
+				<false/>
+				<key>UUID</key>
+				<string>38C2B570-5FED-4834-9637-9B2AFBB6103A</string>
+				<key>WFHTTPMethod</key>
+				<string>GET</string>
+				<key>WFURL</key>
+				<dict>
+					<key>Value</key>
+					<dict>
+						<key>attachmentsByRange</key>
+						<dict>
+							<key>{0, 1}</key>
+							<dict>
+								<key>OutputName</key>
+								<string>Text</string>
+								<key>OutputUUID</key>
+								<string>B524918A-231E-4269-B91B-297AFA824DF0</string>
+								<key>Type</key>
+								<string>ActionOutput</string>
+							</dict>
+						</dict>
+						<key>string</key>
+						<string>&#xFFFC;</string>
+					</dict>
+					<key>WFSerializationType</key>
+					<string>WFTextTokenString</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.detect.dictionary</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>UUID</key>
+				<string>803DFCCD-7105-4FA7-B838-A1DCD2EA3017</string>
+				<key>WFInput</key>
+				<dict>
+					<key>Value</key>
+					<dict>
+						<key>OutputName</key>
+						<string>Contents of URL</string>
+						<key>OutputUUID</key>
+						<string>38C2B570-5FED-4834-9637-9B2AFBB6103A</string>
+						<key>Type</key>
+						<string>ActionOutput</string>
+					</dict>
+					<key>WFSerializationType</key>
+					<string>WFTextTokenAttachment</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.getvalueforkey</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>UUID</key>
+				<string>8B83B9E7-8521-4023-AEEC-11728FB2A212</string>
+				<key>WFDictionaryKey</key>
+				<string>update.safari.update_count</string>
+				<key>WFGetDictionaryValueType</key>
+				<string>Value</string>
+				<key>WFInput</key>
+				<dict>
+					<key>Value</key>
+					<dict>
+						<key>OutputName</key>
+						<string>Dictionary</string>
+						<key>OutputUUID</key>
+						<string>803DFCCD-7105-4FA7-B838-A1DCD2EA3017</string>
+						<key>Type</key>
+						<string>ActionOutput</string>
+					</dict>
+					<key>WFSerializationType</key>
+					<string>WFTextTokenAttachment</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.detect.number</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>UUID</key>
+				<string>51A62BF7-11F1-4A95-9B82-DE37CB6B29D6</string>
+				<key>WFInput</key>
+				<dict>
+					<key>Value</key>
+					<dict>
+						<key>OutputName</key>
+						<string>Dictionary Value</string>
+						<key>OutputUUID</key>
+						<string>8B83B9E7-8521-4023-AEEC-11728FB2A212</string>
+						<key>Type</key>
+						<string>ActionOutput</string>
+					</dict>
+					<key>WFSerializationType</key>
+					<string>WFTextTokenAttachment</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.detect.number</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>UUID</key>
+				<string>540D02D1-BCCD-4B0D-82C4-8B747843FBB3</string>
+				<key>WFInput</key>
+				<dict>
+					<key>Value</key>
+					<dict>
+						<key>OutputName</key>
+						<string>Text</string>
+						<key>OutputUUID</key>
+						<string>9365D547-202B-4F4B-8097-9EAB4A652625</string>
+						<key>Type</key>
+						<string>ActionOutput</string>
+					</dict>
+					<key>WFSerializationType</key>
+					<string>WFTextTokenAttachment</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.conditional</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>5FC7A649-D10A-4548-8D98-2F969D4B625C</string>
+				<key>WFCondition</key>
+				<integer>5</integer>
+				<key>WFControlFlowMode</key>
+				<integer>0</integer>
+				<key>WFInput</key>
+				<dict>
+					<key>Type</key>
+					<string>Variable</string>
+					<key>Variable</key>
+					<dict>
+						<key>Value</key>
+						<dict>
+							<key>OutputName</key>
+							<string>Numbers</string>
+							<key>OutputUUID</key>
+							<string>51A62BF7-11F1-4A95-9B82-DE37CB6B29D6</string>
+							<key>Type</key>
+							<string>ActionOutput</string>
+						</dict>
+						<key>WFSerializationType</key>
+						<string>WFTextTokenAttachment</string>
+					</dict>
+				</dict>
+				<key>WFNumberValue</key>
+				<dict>
+					<key>Value</key>
+					<dict>
+						<key>OutputName</key>
+						<string>Numbers</string>
+						<key>OutputUUID</key>
+						<string>540D02D1-BCCD-4B0D-82C4-8B747843FBB3</string>
+						<key>Type</key>
+						<string>ActionOutput</string>
+					</dict>
+					<key>WFSerializationType</key>
+					<string>WFTextTokenAttachment</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.choosefrommenu</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>074E2EFA-8E4D-474C-8E01-9A6E24DC5FC2</string>
+				<key>WFControlFlowMode</key>
+				<integer>0</integer>
+				<key>WFMenuItems</key>
+				<array>
+					<string>Whats new</string>
+					<string>Download update</string>
+					<string>Cancel</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.choosefrommenu</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>074E2EFA-8E4D-474C-8E01-9A6E24DC5FC2</string>
+				<key>WFControlFlowMode</key>
+				<integer>1</integer>
+				<key>WFMenuItemTitle</key>
+				<string>Whats new</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.getvalueforkey</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>UUID</key>
+				<string>A4CF16CE-2A3E-44E6-BA4A-8735314EAC3B</string>
+				<key>WFDictionaryKey</key>
+				<string>update.safari.update_features</string>
+				<key>WFGetDictionaryValueType</key>
+				<string>Value</string>
+				<key>WFInput</key>
+				<dict>
+					<key>Value</key>
+					<dict>
+						<key>OutputName</key>
+						<string>Dictionary</string>
+						<key>OutputUUID</key>
+						<string>803DFCCD-7105-4FA7-B838-A1DCD2EA3017</string>
+						<key>Type</key>
+						<string>ActionOutput</string>
+					</dict>
+					<key>WFSerializationType</key>
+					<string>WFTextTokenAttachment</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.repeat.each</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>18AF0B12-0BD7-4945-B764-AC6DAE28B4CE</string>
+				<key>WFControlFlowMode</key>
+				<integer>0</integer>
+				<key>WFInput</key>
+				<dict>
+					<key>Value</key>
+					<dict>
+						<key>OutputName</key>
+						<string>Dictionary Value</string>
+						<key>OutputUUID</key>
+						<string>A4CF16CE-2A3E-44E6-BA4A-8735314EAC3B</string>
+						<key>Type</key>
+						<string>ActionOutput</string>
+					</dict>
+					<key>WFSerializationType</key>
+					<string>WFTextTokenAttachment</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.appendvariable</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>WFInput</key>
+				<dict>
+					<key>Value</key>
+					<dict>
+						<key>Type</key>
+						<string>Variable</string>
+						<key>VariableName</key>
+						<string>Repeat Item</string>
+					</dict>
+					<key>WFSerializationType</key>
+					<string>WFTextTokenAttachment</string>
+				</dict>
+				<key>WFVariableName</key>
+				<string>Features</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.repeat.each</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>18AF0B12-0BD7-4945-B764-AC6DAE28B4CE</string>
+				<key>UUID</key>
+				<string>497BC777-1298-4E50-88F5-609A361D40EB</string>
+				<key>WFControlFlowMode</key>
+				<integer>2</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.alert</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>WFAlertActionCancelButtonShown</key>
+				<false/>
+				<key>WFAlertActionMessage</key>
+				<dict>
+					<key>Value</key>
+					<dict>
+						<key>attachmentsByRange</key>
+						<dict>
+							<key>{0, 1}</key>
+							<dict>
+								<key>Type</key>
+								<string>Variable</string>
+								<key>VariableName</key>
+								<string>Features</string>
+							</dict>
+						</dict>
+						<key>string</key>
+						<string>&#xFFFC;</string>
+					</dict>
+					<key>WFSerializationType</key>
+					<string>WFTextTokenString</string>
+				</dict>
+				<key>WFAlertActionTitle</key>
+				<string>What's new</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.choosefrommenu</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>074E2EFA-8E4D-474C-8E01-9A6E24DC5FC2</string>
+				<key>WFControlFlowMode</key>
+				<integer>1</integer>
+				<key>WFMenuItemTitle</key>
+				<string>Download update</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.getvalueforkey</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>UUID</key>
+				<string>84A49630-88CB-4172-9F01-CC5E0D02D37C</string>
+				<key>WFDictionaryKey</key>
+				<string>update.safari.update_url</string>
+				<key>WFGetDictionaryValueType</key>
+				<string>Value</string>
+				<key>WFInput</key>
+				<dict>
+					<key>Value</key>
+					<dict>
+						<key>OutputName</key>
+						<string>Dictionary</string>
+						<key>OutputUUID</key>
+						<string>803DFCCD-7105-4FA7-B838-A1DCD2EA3017</string>
+						<key>Type</key>
+						<string>ActionOutput</string>
+					</dict>
+					<key>WFSerializationType</key>
+					<string>WFTextTokenAttachment</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.openurl</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>Show-WFInput</key>
+				<true/>
+				<key>UUID</key>
+				<string>1B454002-77C3-46C0-BD9A-7A57BF068E58</string>
+				<key>WFInput</key>
+				<dict>
+					<key>Value</key>
+					<dict>
+						<key>OutputName</key>
+						<string>Dictionary Value</string>
+						<key>OutputUUID</key>
+						<string>84A49630-88CB-4172-9F01-CC5E0D02D37C</string>
+						<key>Type</key>
+						<string>ActionOutput</string>
+					</dict>
+					<key>WFSerializationType</key>
+					<string>WFTextTokenAttachment</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.choosefrommenu</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>074E2EFA-8E4D-474C-8E01-9A6E24DC5FC2</string>
+				<key>WFControlFlowMode</key>
+				<integer>1</integer>
+				<key>WFMenuItemTitle</key>
+				<string>Cancel</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.choosefrommenu</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>074E2EFA-8E4D-474C-8E01-9A6E24DC5FC2</string>
+				<key>UUID</key>
+				<string>43F42F4C-2252-4927-B701-F010841C48D4</string>
+				<key>WFControlFlowMode</key>
+				<integer>2</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.conditional</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>5FC7A649-D10A-4548-8D98-2F969D4B625C</string>
+				<key>WFControlFlowMode</key>
+				<integer>1</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.alert</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>WFAlertActionCancelButtonShown</key>
+				<false/>
+				<key>WFAlertActionMessage</key>
+				<string>YT Premium Patch is up to date.</string>
+				<key>WFAlertActionTitle</key>
+				<string>YT Premium Patch</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.conditional</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>5FC7A649-D10A-4548-8D98-2F969D4B625C</string>
+				<key>UUID</key>
+				<string>442AC0B2-E4C1-4B49-B273-ED4861A04196</string>
+				<key>WFControlFlowMode</key>
+				<integer>2</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.choosefrommenu</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>4824FB10-F1A9-4422-97CC-C24942EF2F10</string>
+				<key>WFControlFlowMode</key>
+				<integer>1</integer>
+				<key>WFMenuItemTitle</key>
+				<string>build info</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.getrichtextfrommarkdown</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>UUID</key>
+				<string>CDCDD02D-D954-4183-8CA5-F021F260F35C</string>
+				<key>WFInput</key>
+				<dict>
+					<key>Value</key>
+					<dict>
+						<key>OutputName</key>
+						<string>Text</string>
+						<key>OutputUUID</key>
+						<string>DBE650A5-2070-47A4-8E2E-58FE8264E504</string>
+						<key>Type</key>
+						<string>ActionOutput</string>
+					</dict>
+					<key>WFSerializationType</key>
+					<string>WFTextTokenAttachment</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.showwebpage</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>UUID</key>
+				<string>E94FD852-E253-481C-8AB8-475215A6C98E</string>
+				<key>WFURL</key>
+				<dict>
+					<key>Value</key>
+					<dict>
+						<key>attachmentsByRange</key>
+						<dict>
+							<key>{0, 1}</key>
+							<dict>
+								<key>OutputName</key>
+								<string>Rich Text from Markdown</string>
+								<key>OutputUUID</key>
+								<string>CDCDD02D-D954-4183-8CA5-F021F260F35C</string>
+								<key>Type</key>
+								<string>ActionOutput</string>
+							</dict>
+						</dict>
+						<key>string</key>
+						<string>&#xFFFC;</string>
+					</dict>
+					<key>WFSerializationType</key>
+					<string>WFTextTokenString</string>
+				</dict>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.choosefrommenu</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>4824FB10-F1A9-4422-97CC-C24942EF2F10</string>
+				<key>WFControlFlowMode</key>
+				<integer>1</integer>
+				<key>WFMenuItemTitle</key>
+				<string>× Close </string>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.choosefrommenu</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>GroupingIdentifier</key>
+				<string>4824FB10-F1A9-4422-97CC-C24942EF2F10</string>
+				<key>UUID</key>
+				<string>0DDB637B-33F7-44C8-BF23-150FD7BF4003</string>
+				<key>WFControlFlowMode</key>
+				<integer>2</integer>
+			</dict>
+		</dict>
+		<dict>
+			<key>WFWorkflowActionIdentifier</key>
+			<string>is.workflow.actions.comment</string>
+			<key>WFWorkflowActionParameters</key>
+			<dict>
+				<key>WFCommentActionText</key>
+				<string>© 2026 tromoSM. Licensed under apache 2.0.</string>
+			</dict>
+		</dict>
+	</array>
+	<key>WFWorkflowClientVersion</key>
+	<string>1146.16.2.2</string>
+	<key>WFWorkflowHasOutputFallback</key>
+	<false/>
+	<key>WFWorkflowHasShortcutInputVariables</key>
+	<true/>
+	<key>WFWorkflowIcon</key>
+	<dict>
+		<key>WFWorkflowIconGlyphNumber</key>
+		<integer>59864</integer>
+		<key>WFWorkflowIconStartColor</key>
+		<integer>4282601983</integer>
+	</dict>
+	<key>WFWorkflowImportQuestions</key>
+	<array/>
+	<key>WFWorkflowInputContentItemClasses</key>
+	<array>
+		<string>WFSafariWebPageContentItem</string>
+		<string>WFPhoneNumberContentItem</string>
+	</array>
+	<key>WFWorkflowMinimumClientVersion</key>
+	<integer>1113</integer>
+	<key>WFWorkflowMinimumClientVersionString</key>
+	<string>1113</string>
+	<key>WFWorkflowNoInputBehavior</key>
+	<dict>
+		<key>Name</key>
+		<string>WFWorkflowNoInputBehaviorShowError</string>
+		<key>Parameters</key>
+		<dict>
+			<key>Error</key>
+			<string>YT Premium Patch can't directly be activated.     Go to https://youtube.com/ and click share icon and click Activate Yt premium patch to activate. Refreshing the page will make it deactivate. </string>
+		</dict>
+	</dict>
+	<key>WFWorkflowOutputContentItemClasses</key>
+	<array/>
+	<key>WFWorkflowTypes</key>
+	<array>
+		<string>ActionExtension</string>
+	</array>
+</dict>
+</plist>
