@@ -9,6 +9,27 @@
 Install <a href="https://addons.mozilla.org/addon/yt-premium/">YT Premium</a> on mozilla addons
 </details>
 <details>
+  <summary>Safari</summary>
+  <br>
+
+  > **NOTICE** <br>
+  > YT Premium patch can't be activated directly or forever and will be deactivated when you refresh the page on safari due to apple's restrictions.
+  
+  <kbd><img height="150" alt="qr-code" src="https://github.com/user-attachments/assets/33e51eb7-b63d-4484-8746-e11cf67c83c5" /></kbd>
+
+  - Go to <a target="_blank" href="https://www.icloud.com/shortcuts/91e108dc56c448ad9aede902e449a10a">shortcut link</a> and click "Get shortcut".
+  - Or <a target="_balnk" href="https://github.com/tromoSM/YT-Premium-Patch/raw/refs/heads/main/safari/shortcut.shortcut">Download the file directly</a>.<br><br>
+**and After installing,**
+
+
+  - Go to `youtube.com` on safari and don't let the youtube app be opened.
+  - Click the share icon (<img height="20" src="https://github.com/user-attachments/assets/b6dddbdf-8cde-4ca3-9124-1936be078d4b">)
+  - and click "Activate YT Premium Patch" <p align="left"><img  height="100" src="https://github.com/user-attachments/assets/0f9e1adc-08c2-4692-a427-98a735dde283" /></p>
+  - unfortunately apple's restrictions prevent us from keeping the premium activation permenatly and will be deactivated when you refresh the page. 
+   
+    
+</details>
+<details>
   <summary>Other browsers including firefox</summary>
   Find a js injector for your browser and get the "main.js" from the <a href="https://github.com/tromoSM/YT-Premium-Patch/releases/latest">latest release</a> and use the js injector to inject the js to youtube.
 </details>
