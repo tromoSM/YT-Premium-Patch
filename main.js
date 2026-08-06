@@ -16,12 +16,12 @@ limitations under the License.
 tromoSM/YT-Premium-Patch 
 main.js
 
-v1.5
+v1.6
 */
 if(location.hostname!=="www.youtube.com"&&location.hostname!=="m.youtube.com"){
     throw ""
 }
-let YTPremiumPatch_Version='v1.5'
+let YTPremiumPatch_Version='v1.6'
 
 const countr=document.createElement("script")
 countr.textContent=`
@@ -377,4 +377,7 @@ window.addEventListener('pointermove',function(){
 if(sidOPBO==false){
     sideOpt()
 }
+})
+window.addEventListener('scroll',function(){
+    StudentBann()
 })
