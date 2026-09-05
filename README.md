@@ -2,6 +2,7 @@
 #### Youtube premium for free
 
 ![Mozilla Add-on Downloads](https://img.shields.io/amo/dw/yt-premium)
+![Mozilla Add-on Users](https://img.shields.io/amo/users/yt-premium)
 
 ## Installation
 <details>
